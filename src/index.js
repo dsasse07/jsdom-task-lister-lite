@@ -137,12 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
   form.addEventListener('submit', e => {
     e.preventDefault()
-    let attributes = {
-      description: e.target[0].value + ' ', 
-      priority: e.target[1].value
-      }
-    createTask(attributes)
-    e.target.reset()
+    if  (e.target[0].value !== "") {
+      let attributes = {
+        description: e.target[0].value + ' ', 
+        priority: e.target[1].value
+        }
+      createTask(attributes)
+      e.target.reset()
+    }
     renderListItems()
   })
 
